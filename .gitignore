@@ -1,0 +1,19 @@
+\.git
+\.hg
+
+\.DS_Store
+\.project
+bower_components
+node_modules
+phantomjsdriver.log
+npm-debug.log*
+yarn.lock
+yarn-error.log*
+
+# Build
+dist
+*/dist
+build
+*/build
+coverage
+Procfile
