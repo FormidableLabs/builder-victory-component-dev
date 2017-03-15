@@ -1,6 +1,6 @@
 {
   "name": "builder-victory-component-dev",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Builder Archetype - Victory Component (Development)",
   "repository": {
     "type": "git",
@@ -12,6 +12,10 @@
     "url": "https://github.com/FormidableLabs/builder-victory-component/issues"
   },
   "homepage": "https://github.com/FormidableLabs/builder-victory-component",
+  "config": {
+    "wds_port_dev": 3000,
+    "wds_port_test": 3001
+  },
   "scripts": {},
   "dependencies": {
     "babel-eslint": "^5.0.0",
