@@ -11,14 +11,12 @@ We love issues!
 
 If you find a bug :bug: the first thing you should do is search for an existing issue describing your problem. It helps if you can add more detail or a reproduction case. See [this list of repos](https://github.com/FormidableLabs/victory/blob/master/CONTRIBUTING.md#fix-bugs), and scroll through or use the search feature.
 
-If you can't find an existing issue, [create a new issue](https://github.com/FormidableLabs/victory/issues/new?labels=bug). **Please add a JSBin or Fiddle demonstrating the issue**. This is the _number one_ most important thing you can do to help us fix the bug!
+If you can't find an existing issue, [create a new issue](https://github.com/FormidableLabs/victory/issues/new?labels=bug). **Please add a [Fiddle](https://jsfiddle.net/5g20p8vd/6/) demonstrating the issue**. This is the _number one_ most important thing you can do to help us fix the bug!
 
-* [clone this bin](http://jsbin.com/qekike/edit)
-* ...[or fork this fiddle](https://jsfiddle.net/5g20p8vd/6/).
 
 ## 2. Fix bugs
 
-Feel like writing some code? The best way to get familiar with the code base is to fix a bug! [Check out our HuBoard](https://huboard.com/FormidableLabs/victory#/) to see issues across all repos.
+Feel like writing some code? The best way to get familiar with the code base is to fix a bug! [Check out our Project Board](https://github.com/FormidableLabs/victory/projects/1) to see issues across all repos.
 
 Fork the repo from the repository front page of the component you want to work on.
 
@@ -154,5 +152,4 @@ Victory Components animate via a flexible animation wrapper `VictoryTransition` 
 
 ### Events
 
-Victory's event system is as general as possible, with no hard-coded events. Events may be attached to any rendered element, and may target any other rendered element. In order for this system to work, all Victory components need to precalculate the props that will be provided to each element they will be responsible for rendering, and expose that calculation as a static method `getBaseProps` for higher order Victory components to use. The `getBaseProps` method should return an object with props stored by `eventKey` or `index` and type (usually `data` or `labels`). See [this example from VictoryScatter](https://github.com/FormidableLabs/victory-chart/blob/master/src/components/victory-scatter/helper-methods.js#L8). Events should be set up in the constructor of each component, and referenced when `componentWillMount` or `componentWillReceiveProps`, [like so](https://github.com/FormidableLabs/victory-chart/blob/master/src/components/victory-scatter/victory-scatter.js#L368). Events are then [bound to each rendered element](https://github.com/FormidableLabs/victory-chart/blob/master/src/components/victory-scatter/victory-scatter.js#L396), and any modifications caused by events and stored on state are [merged with the props of the rendered component](https://github.com/FormidableLabs/victory-chart/blob/master/src/components/victory-scatter/victory-scatter.js#L399).  Any higher components that are responsible for coordinating other Victory components (_i.e._ VictoryChart, VictoryGroup) should make use of the [`VictorySharedEvents` wrapper](https://github.com/FormidableLabs/victory-core/blob/master/src/victory-shared-events/victory-shared-events.js).
-
+Victory's event system is as general as possible, with no hard-coded events. To make a component work with Victory's event system, use the [`addEvents`](https://github.com/FormidableLabs/victory-core/blob/master/src/victory-util/add-events.js) wrapper provided by `victory-core`. Components that use this wrapper should have a static method called `getBaseProps` that calculates props for each primitive component (_i.e._ each `Bar` and `VictoryLabel` rendered by `VictoryBar`). and a static array of `expectedComponents` that may also have devault events. See [`VictoryBar`](https://github.com/FormidableLabs/victory-chart/blob/master/src/components/victory-bar/victory-bar.js#L143) and [its helper-methods](https://github.com/FormidableLabs/victory-chart/blob/master/src/components/victory-bar/helper-methods.js#L96) for an example.
