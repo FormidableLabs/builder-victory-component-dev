@@ -19,7 +19,6 @@
   "scripts": {},
   "dependencies": {
     "babel-eslint": "^6.1.2",
-    "clean-webpack-plugin": "^0.1.5",
     "eslint": "^2.0.0",
     "eslint-config-formidable": "^2.0.1",
     "eslint-plugin-filenames": "^1.2.0",
@@ -41,7 +40,7 @@
     "karma-safari-launcher": "^1.0.0",
     "karma-sauce-launcher": "^1.0.0",
     "karma-spec-reporter": "0.0.26",
-    "karma-webpack": "^1.8.0",
+    "karma-webpack": "^2.0.4",
     "lodash": "^4.17.4",
     "mocha": "^3.0.2",
     "opener": "^1.4.1",
@@ -49,7 +48,6 @@
     "publishr": "^1.0.0",
     "react-hot-loader": "v2.0.0-alpha-4",
     "sinon": "^1.17.5",
-    "webpack": "^1.12.9",
     "webpack-dev-server": "^1.10.0",
     "webpack-stats-plugin": "^0.1.1"
   },
